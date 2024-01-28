@@ -1,0 +1,12 @@
+<div class="div-button" data-controller="clickme" data-clickme-target="divbutton">
+  <section>
+    <div data-clickme-target="section">
+      <p class="click-me">CLICK ME</p>
+      <p><%= image_tag "arrow-down.png", class: "img-arrow" %></p>
+      <button anim="sheen" data-action="click->clickme#hideDiv">Trente-et-1</button>
+    </div>
+  </section>
+  <div data-clickme-target="imgmassage" class="d-none">
+    <%= image_tag "massage.jpg", class: "img-massage" %>
+  </div>
+</div>

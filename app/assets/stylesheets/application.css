@@ -13,3 +13,153 @@
  *= require_tree .
  *= require_self
  */
+
+
+@import "https://unpkg.com/open-props@1.6.17/easings.min.css";
+
+
+@keyframes sheen {
+  100% {
+    transform: rotateZ(60deg) translate(1em, -9em);
+  }
+}
+
+@keyframes appear {
+  0% {
+    transform: scale(0.1);
+  }
+
+  10% {
+    transform: scale(0.5);
+  }
+
+  20% {
+    transform: scale(0.3);
+  }
+
+  30% {
+    transform: scale(0.7);
+  }
+
+  40% {
+    transform: scale(0.4);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  60% {
+    transform: scale(0.6);
+  }
+
+  70% {
+    transform: scale(1.3);
+  }
+
+  80% {
+    transform: scale(0.7);
+  }
+
+  90% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    rotate: 360deg;
+    transform: scale(1);
+  }
+}
+
+[anim="sheen"]:not(.toggled)::after {
+  animation: sheen var(--ease-elastic-in-1) 1.5s infinite;
+}
+
+[anim="sheen"]::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  background: var(--red-sheen);
+  transform: rotateZ(60deg) translate(-5em, 7.5em);
+}
+
+:root {
+  --black: hsl(0, 0%, 13%);
+  --dark: hsl(12, 32%, 2%);
+  --gray: hsl(0, 0%, 70%);
+  --white: hsl(0, 0%, 96%);
+  --red: hsl(303, 90%, 63%);
+  --red-shadow: hsl(99, 90%, 63%);
+  --red-sheen: linear-gradient(to bottom,
+      hsl(302, 100%, 50%),
+      hsla(282, 100%, 50%, 0.825) 50%,
+      hsla(282, 100%, 50%, 0.436));
+}
+
+html,
+body {
+  background-color: var(--black);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-basis: 180px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--white);
+  font-family: "roboto", sans-serif;
+  font-variation-settings: "wght" 400;
+  letter-spacing: 0.04em;
+}
+
+button {
+  all: unset;
+  background-color: hsl(301.85deg 100% 9.13%);
+  padding: 6px 12px;
+  border-radius: 8px !important;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: 4px solid var(--red);
+  box-shadow: 0 0 4px var(--red-shadow);
+  cursor: pointer;
+  perspective: 1000px;
+  position: relative;
+  overflow: hidden;
+  animation: appear 2s ease-in-out;
+}
+
+.div-button {
+  background-color: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 35vh;
+}
+
+.paddingTop{
+  padding-top: 0;
+}
+
+.img-arrow {
+  width: 25px;
+}
+
+.click-me {
+  font-weight: 700;
+}
+
+.img-massage {
+  height: 100vh;
+  width: -webkit-fill-available;
+  z-index: 1000;
+}
+
+.opacity1 {
+  opacity: 1;
+}
